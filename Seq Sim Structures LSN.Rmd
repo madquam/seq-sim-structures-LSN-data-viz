@@ -11,7 +11,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Figure 3
+# Figure 5 (formerly Fig 3)
 ```{r}
 Fig3 <- read.csv("~/Documents/Research/Tool Task/predicates/Fig3.csv", na.strings="N/A")
 library(tidyverse)
@@ -36,6 +36,22 @@ ggplot(data=fig3_noA, mapping = aes(x= Group, y=Proportion)) + geom_boxplot(aes(
   geom_dotplot(position = position_dodge(.8), dotsize=.8, binaxis = "y", stackdir = "center", aes(fill=agentmarking)) + theme_minimal() +
   scale_color_manual(name= "", labels=c("HHS/midsagittal", "OHS/lateral"), values=c("black", "azure4")) +
   scale_fill_manual(name= "", labels=c("HHS/midsagittal", "OHS/lateral"), values=c("black", "azure4")) +
+  theme(legend.position = "bottom", plot.title = element_text(color = "grey20", size = 24, hjust = .5, vjust = .5, face = "plain"),
+        axis.text.x = element_text(color = "grey20", size = 14, hjust = .5, vjust = .5, face = "plain"),
+        axis.text.y = element_text(color = "grey20", size = 14, hjust = 1, vjust = 0, face = "plain"),
+        axis.title.x = element_text(color = "grey20", size = 16, hjust = .5, vjust = 0, face = "plain"),
+        axis.title.y = element_text(color = "grey20", size = 16, hjust = .5, vjust = .5, face = "plain"),
+        legend.text = element_text(color = "grey20", size = 14)) +
+  ylab("Proportion of Trials") + xlab("Language Group") +
+  ggtitle("Trials without an Agent")
+
+#create box plot with different shapes for points
+#correct attempt (change shapes using geom_weave)
+ggplot(data=fig3_noA, mapping = aes(x= Group, y=Proportion)) + geom_boxplot(aes(color=agentmarking), position = position_dodge(.8)) + ylim(0, 1) +
+  geom_weave(position=position_dodge(.8), layout = "bin", dotsize = 2, aes(fill=agentmarking, shape=agentmarking, color=agentmarking)) + theme_minimal() +
+  scale_color_manual(name= "", labels=c("HHS/midsagittal", "OHS/lateral"), values=c("black", "azure4")) +
+  scale_fill_manual(name= "", labels=c("HHS/midsagittal", "OHS/lateral"), values=c("black", "azure4")) +
+  scale_shape_discrete(name= "", labels=c("HHS/midsagittal", "OHS/lateral")) +
   theme(legend.position = "bottom", plot.title = element_text(color = "grey20", size = 24, hjust = .5, vjust = .5, face = "plain"),
         axis.text.x = element_text(color = "grey20", size = 14, hjust = .5, vjust = .5, face = "plain"),
         axis.text.y = element_text(color = "grey20", size = 14, hjust = 1, vjust = 0, face = "plain"),
@@ -75,9 +91,24 @@ ggplot(data=fig3_A, mapping = aes(x= Group, y=Proportion)) + geom_boxplot(aes(co
         legend.text = element_text(color = "grey20", size = 14)) +
   ylab("Proportion of Trials") + xlab("Language Group") +
   ggtitle("Trials with an Agent")
+
+#change dot shape
+ggplot(data=fig3_A, mapping = aes(x= Group, y=Proportion)) + geom_boxplot(aes(color=agentmarking), position = position_dodge(.8)) + ylim(0, 1) +
+  geom_weave(position=position_dodge(.8), layout = "bin", dotsize = 2, aes(fill=agentmarking, shape=agentmarking, color=agentmarking)) + theme_minimal() +
+  scale_color_manual(name= "", labels=c("HHS/midsagittal", "OHS/lateral"), values=c("black", "azure4")) +
+  scale_fill_manual(name= "", labels=c("HHS/midsagittal", "OHS/lateral"), values=c("black", "azure4")) +
+  scale_shape_discrete(name= "", labels=c("HHS/midsagittal", "OHS/lateral")) +
+  theme(legend.position = "bottom", plot.title = element_text(color = "grey20", size = 24, hjust = .5, vjust = .5, face = "plain"),
+        axis.text.x = element_text(color = "grey20", size = 14, hjust = .5, vjust = .5, face = "plain"),
+        axis.text.y = element_text(color = "grey20", size = 14, hjust = 1, vjust = 0, face = "plain"),
+        axis.title.x = element_text(color = "grey20", size = 16, hjust = .5, vjust = 0, face = "plain"),
+        axis.title.y = element_text(color = "grey20", size = 16, hjust = .5, vjust = .5, face = "plain"),
+        legend.text = element_text(color = "grey20", size = 14)) +
+  ylab("Proportion of Trials") + xlab("Language Group") +
+  ggtitle("Trials with an Agent")
 ```
 
-# Figure 4
+# Figure 6 (formerly Fig 4)
 ```{r}
 Fig4 <- read.csv("~/Documents/Research/Tool Task/predicates/Fig4.csv")
 ```
@@ -111,6 +142,22 @@ ggplot(data=fig4_multi, mapping = aes(x= Group, y=Proportion)) + geom_boxplot(ae
   ylab("Proportion of Trials") + xlab("Language Group") +
   ggtitle("Trials with Multiple Objects")
 
+#change dot shape
+ggplot(data=fig4_multi, mapping = aes(x= Group, y=Proportion)) + geom_boxplot(aes(color=movement), position = position_dodge(.8)) + ylim(0, 1) +
+  geom_weave(position=position_dodge(.8), layout = "bin", dotsize = 2, aes(fill=movement, shape=movement, color=movement)) +
+ theme_minimal() +
+  scale_color_manual(name= "", labels=c("single movement", "repeated movement"), values=c("black", "azure4")) +
+  scale_fill_manual(name= "", labels=c("single movement", "repeated movement"), values=c("black", "azure4")) +
+    scale_shape_discrete(name= "", labels=c("single movement", "repeated movement")) +
+  theme(legend.position = "bottom", plot.title = element_text(color = "grey20", size = 24, hjust = .5, vjust = .5, face = "plain"),
+        axis.text.x = element_text(color = "grey20", size = 14, hjust = .5, vjust = .5, face = "plain"),
+        axis.text.y = element_text(color = "grey20", size = 14, hjust = 1, vjust = 0, face = "plain"),
+        axis.title.x = element_text(color = "grey20", size = 16, hjust = .5, vjust = 0, face = "plain"),
+        axis.title.y = element_text(color = "grey20", size = 16, hjust = .5, vjust = .5, face = "plain"),
+        legend.text = element_text(color = "grey20", size = 14)) +
+  ylab("Proportion of Trials") + xlab("Language Group") +
+  ggtitle("Trials with Multiple Objects")
+
 ```
 
 ### trials with a single object
@@ -129,7 +176,7 @@ levels(movement)
 movement = relevel(movement, ref = 'Multiple')
 
 #create box plot
-ggplot(data=fig4_multi, mapping = aes(x= Group, y=Proportion)) + geom_boxplot(aes(color=movement), position = position_dodge(.8)) + ylim(0, 1) +
+ggplot(data=fig4_sing, mapping = aes(x= Group, y=Proportion)) + geom_boxplot(aes(color=movement), position = position_dodge(.8)) + ylim(0, 1) +
   geom_dotplot(position = position_dodge(.8), dotsize=.8, binaxis = "y", stackdir = "center", aes(fill=movement)) + theme_minimal() +
   scale_color_manual(name= "", labels=c("single movement", "repeated movement"), values=c("azure4", "black")) +
   scale_fill_manual(name= "", labels=c("single movement", "repeated movement"), values=c("azure4", "black")) +
@@ -141,9 +188,25 @@ ggplot(data=fig4_multi, mapping = aes(x= Group, y=Proportion)) + geom_boxplot(ae
         legend.text = element_text(color = "grey20", size = 14)) +
   ylab("Proportion of Trials") + xlab("Language Group") +
   ggtitle("Trials with a Single Object")
+
+#change dot shape
+ggplot(data=fig4_sing, mapping = aes(x= Group, y=Proportion)) + geom_boxplot(aes(color=movement), position = position_dodge(.8)) + ylim(0, 1) +
+  geom_weave(position=position_dodge(.8), layout = "bin", dotsize = 2, aes(fill=movement, shape=movement, color=movement)) +
+ theme_minimal() +
+  scale_color_manual(name= "", labels=c("single movement", "repeated movement"), values=c("black", "azure4")) +
+  scale_fill_manual(name= "", labels=c("single movement", "repeated movement"), values=c("black", "azure4")) +
+    scale_shape_discrete(name= "", labels=c("single movement", "repeated movement")) +
+  theme(legend.position = "bottom", plot.title = element_text(color = "grey20", size = 24, hjust = .5, vjust = .5, face = "plain"),
+        axis.text.x = element_text(color = "grey20", size = 14, hjust = .5, vjust = .5, face = "plain"),
+        axis.text.y = element_text(color = "grey20", size = 14, hjust = 1, vjust = 0, face = "plain"),
+        axis.title.x = element_text(color = "grey20", size = 16, hjust = .5, vjust = 0, face = "plain"),
+        axis.title.y = element_text(color = "grey20", size = 16, hjust = .5, vjust = .5, face = "plain"),
+        legend.text = element_text(color = "grey20", size = 14)) +
+  ylab("Proportion of Trials") + xlab("Language Group") +
+  ggtitle("Trials with a Single Object")
 ```
 
-# Figure 6
+# Figure 8 (formerly Fig 6)
 ```{r}
 Fig6 <- read.csv("~/Documents/Research/Tool Task/predicates/Fig6.csv")
 
@@ -161,6 +224,21 @@ ggplot(data=Fig6, mapping = aes(x= Group, y=Proportion)) + geom_boxplot(aes(colo
   geom_dotplot(position = position_dodge(.8), dotsize=.8, binaxis = "y", stackdir = "center", aes(fill=Marking)) + theme_minimal() +
   scale_color_manual(name= "", labels=c("simultaneous", "mixed", "sequential"), values=c("grey65", "grey33", "black")) +
   scale_fill_manual(name= "", labels=c("simultaneous", "mixed", "sequential"), values=c("grey65", "grey33", "black")) +
+  theme(legend.position = "bottom", plot.title = element_text(color = "grey20", size = 18, hjust = .5, vjust = .5, face = "plain"),
+        axis.text.x = element_text(color = "grey20", size = 14, hjust = .5, vjust = .5, face = "plain"),
+        axis.text.y = element_text(color = "grey20", size = 14, hjust = 1, vjust = 0, face = "plain"),
+        axis.title.x = element_text(color = "grey20", size = 16, hjust = .5, vjust = 0, face = "plain"),
+        axis.title.y = element_text(color = "grey20", size = 16, hjust = .5, vjust = .5, face = "plain"),
+        legend.text = element_text(color = "grey20", size = 14)) +
+  ylab("Proportion of Trials") + xlab("Language Group") +
+  ggtitle("Simultaneous or Sequential Agent/Plural Marking")
+
+#change dot shape
+ggplot(data=Fig6, mapping = aes(x= Group, y=Proportion)) + geom_boxplot(aes(color=Marking), position = position_dodge(.8)) + ylim(0, 1) +
+  geom_weave(position=position_dodge(.8), layout = "bin", dotsize = 2, aes(fill=Marking, shape=Marking, color=Marking)) + theme_minimal() +
+  scale_color_manual(name= "", labels=c("simultaneous", "mixed", "sequential"), values=c("grey65", "grey33", "black")) +
+  scale_fill_manual(name= "", labels=c("simultaneous", "mixed", "sequential"), values=c("grey65", "grey33", "black")) +
+  scale_shape_discrete(name= "", labels=c("simultaneous", "mixed", "sequential")) +
   theme(legend.position = "bottom", plot.title = element_text(color = "grey20", size = 18, hjust = .5, vjust = .5, face = "plain"),
         axis.text.x = element_text(color = "grey20", size = 14, hjust = .5, vjust = .5, face = "plain"),
         axis.text.y = element_text(color = "grey20", size = 14, hjust = 1, vjust = 0, face = "plain"),
