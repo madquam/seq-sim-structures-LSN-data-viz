@@ -61,6 +61,21 @@ ggplot(data=fig3_noA, mapping = aes(x= Group, y=Proportion)) + geom_boxplot(aes(
   ylab("Proportion of Trials") + xlab("Language Group") +
   ggtitle("Trials without an Agent")
 
+#reviewer edits 231023
+#remove x-axis labels
+ggplot(data=fig3_noA, mapping = aes(x= Group, y=Proportion)) + geom_boxplot(aes(color=agentmarking), position = position_dodge(.8)) + ylim(0, 1) +
+  geom_weave(position=position_dodge(.8), layout = "bin", dotsize = 2, aes(fill=agentmarking, shape=agentmarking, color=agentmarking)) + theme_minimal() +
+  scale_color_manual(name= "", labels=c("HHS/midsagittal", "OHS/lateral"), values=c("black", "azure4")) +
+  scale_fill_manual(name= "", labels=c("HHS/midsagittal", "OHS/lateral"), values=c("black", "azure4")) +
+  scale_shape_discrete(name= "", labels=c("HHS/midsagittal", "OHS/lateral")) +
+  theme(legend.position = "bottom", plot.title = element_text(color = "grey20", size = 24, hjust = .5, vjust = .5, face = "plain"),
+        axis.text.x = element_text(color = "grey20", size = 14, hjust = .5, vjust = .5, face = "plain"),
+        axis.text.y = element_text(color = "grey20", size = 14, hjust = 1, vjust = 0, face = "plain"),
+        axis.title.x = element_blank(),
+        axis.title.y = element_text(color = "grey20", size = 16, hjust = .5, vjust = .5, face = "plain"),
+        legend.text = element_text(color = "grey20", size = 14)) + 
+  ylab("Proportion of Trials") + ggtitle("Trials without an Agent")
+
 ```
 
 ### trials with agent
@@ -106,6 +121,21 @@ ggplot(data=fig3_A, mapping = aes(x= Group, y=Proportion)) + geom_boxplot(aes(co
         legend.text = element_text(color = "grey20", size = 14)) +
   ylab("Proportion of Trials") + xlab("Language Group") +
   ggtitle("Trials with an Agent")
+
+#reviewer edits 231023
+#remove x-axis labels
+ggplot(data=fig3_A, mapping = aes(x= Group, y=Proportion)) + geom_boxplot(aes(color=agentmarking), position = position_dodge(.8)) + ylim(0, 1) +
+  geom_weave(position=position_dodge(.8), layout = "bin", dotsize = 2, aes(fill=agentmarking, shape=agentmarking, color=agentmarking)) + theme_minimal() +
+  scale_color_manual(name= "", labels=c("HHS/midsagittal", "OHS/lateral"), values=c("black", "azure4")) +
+  scale_fill_manual(name= "", labels=c("HHS/midsagittal", "OHS/lateral"), values=c("black", "azure4")) +
+  scale_shape_discrete(name= "", labels=c("HHS/midsagittal", "OHS/lateral")) +
+  theme(legend.position = "bottom", plot.title = element_text(color = "grey20", size = 24, hjust = .5, vjust = .5, face = "plain"),
+        axis.text.x = element_text(color = "grey20", size = 14, hjust = .5, vjust = .5, face = "plain"),
+        axis.text.y = element_text(color = "grey20", size = 14, hjust = 1, vjust = 0, face = "plain"),
+        axis.title.x = element_blank(),
+        axis.title.y = element_text(color = "grey20", size = 16, hjust = .5, vjust = .5, face = "plain"),
+        legend.text = element_text(color = "grey20", size = 14)) +
+  ylab("Proportion of Trials")  + ggtitle("Trials with an Agent")
 ```
 
 # Figure 6 (formerly Fig 4)
@@ -158,6 +188,21 @@ ggplot(data=fig4_multi, mapping = aes(x= Group, y=Proportion)) + geom_boxplot(ae
   ylab("Proportion of Trials") + xlab("Language Group") +
   ggtitle("Trials with Multiple Objects")
 
+#review edits 231023
+ggplot(data=fig4_multi, mapping = aes(x= Group, y=Proportion)) + geom_boxplot(aes(color=movement), position = position_dodge(.8)) + ylim(0, 1) +
+  geom_weave(position=position_dodge(.8), layout = "bin", dotsize = 2, aes(fill=movement, shape=movement, color=movement)) +
+  theme_minimal() +
+  scale_color_manual(name= "", labels=c("single movement", "repeated movement"), values=c("black", "azure4")) +
+  scale_fill_manual(name= "", labels=c("single movement", "repeated movement"), values=c("black", "azure4")) +
+  scale_shape_discrete(name= "", labels=c("single movement", "repeated movement")) +
+  theme(legend.position = "bottom", plot.title = element_text(color = "grey20", size = 24, hjust = .5, vjust = .5, face = "plain"),
+        axis.text.x = element_text(color = "grey20", size = 14, hjust = .5, vjust = .5, face = "plain"),
+        axis.text.y = element_text(color = "grey20", size = 14, hjust = 1, vjust = 0, face = "plain"),
+        axis.title.x = element_blank(),
+        axis.title.y = element_text(color = "grey20", size = 16, hjust = .5, vjust = .5, face = "plain"),
+        legend.text = element_text(color = "grey20", size = 14)) +
+  ylab("Proportion of Trials") + ggtitle("Trials with Multiple Objects")
+
 ```
 
 ### trials with a single object
@@ -204,6 +249,21 @@ ggplot(data=fig4_sing, mapping = aes(x= Group, y=Proportion)) + geom_boxplot(aes
         legend.text = element_text(color = "grey20", size = 14)) +
   ylab("Proportion of Trials") + xlab("Language Group") +
   ggtitle("Trials with a Single Object")
+
+#reviewer edits 231023
+ggplot(data=fig4_sing, mapping = aes(x= Group, y=Proportion)) + geom_boxplot(aes(color=movement), position = position_dodge(.8)) + ylim(0, 1) +
+  geom_weave(position=position_dodge(.8), layout = "bin", dotsize = 2, aes(fill=movement, shape=movement, color=movement)) +
+  theme_minimal() +
+  scale_color_manual(name= "", labels=c("single movement", "repeated movement"), values=c("black", "azure4")) +
+  scale_fill_manual(name= "", labels=c("single movement", "repeated movement"), values=c("black", "azure4")) +
+  scale_shape_discrete(name= "", labels=c("single movement", "repeated movement")) +
+  theme(legend.position = "bottom", plot.title = element_text(color = "grey20", size = 24, hjust = .5, vjust = .5, face = "plain"),
+        axis.text.x = element_text(color = "grey20", size = 14, hjust = .5, vjust = .5, face = "plain"),
+        axis.text.y = element_text(color = "grey20", size = 14, hjust = 1, vjust = 0, face = "plain"),
+        axis.title.x = element_blank(),
+        axis.title.y = element_text(color = "grey20", size = 16, hjust = .5, vjust = .5, face = "plain"),
+        legend.text = element_text(color = "grey20", size = 14)) +
+  ylab("Proportion of Trials") + ggtitle("Trials with a Single Object")
 ```
 
 # Figure 8 (formerly Fig 6)
@@ -247,6 +307,20 @@ ggplot(data=Fig6, mapping = aes(x= Group, y=Proportion)) + geom_boxplot(aes(colo
         legend.text = element_text(color = "grey20", size = 14)) +
   ylab("Proportion of Trials") + xlab("Language Group") +
   ggtitle("Simultaneous or Sequential Agent/Plural Marking")
+
+#review edits 231023
+ggplot(data=Fig6, mapping = aes(x= Group, y=Proportion)) + geom_boxplot(aes(color=Marking), position = position_dodge(.8)) + ylim(0, 1) +
+  geom_weave(position=position_dodge(.8), layout = "bin", dotsize = 2, aes(fill=Marking, shape=Marking, color=Marking)) + theme_minimal() +
+  scale_color_manual(name= "", labels=c("simultaneous", "mixed", "sequential"), values=c("grey65", "grey33", "black")) +
+  scale_fill_manual(name= "", labels=c("simultaneous", "mixed", "sequential"), values=c("grey65", "grey33", "black")) +
+  scale_shape_discrete(name= "", labels=c("simultaneous", "mixed", "sequential")) +
+  theme(legend.position = "bottom", plot.title = element_text(color = "grey20", size = 18, hjust = .5, vjust = .5, face = "plain"),
+        axis.text.x = element_text(color = "grey20", size = 14, hjust = .5, vjust = .5, face = "plain"),
+        axis.text.y = element_text(color = "grey20", size = 14, hjust = 1, vjust = 0, face = "plain"),
+        axis.title.x = element_blank(),
+        axis.title.y = element_text(color = "grey20", size = 16, hjust = .5, vjust = .5, face = "plain"),
+        legend.text = element_text(color = "grey20", size = 14)) +
+  ylab("Proportion of Trials") + ggtitle("Simultaneous or Sequential Agent/Plural Marking")
 
 ```
 
